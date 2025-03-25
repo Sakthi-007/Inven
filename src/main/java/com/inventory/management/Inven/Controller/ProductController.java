@@ -32,12 +32,12 @@ public class ProductController {
     }
 
     @PutMapping("/updatePrice/{id}")
-    public Products updatePrice(@PathVariable Long id,@RequestBody double price)
+    public Products updatePrice(@PathVariable Long id,@RequestParam double price)
     {
         return productService.updatePrice(id,price);
     }
     @PutMapping("/updateQuantity/{id}")
-    public Products updateQuantity(@PathVariable Long id,@RequestBody int quantity)
+    public Products updateQuantity(@PathVariable Long id,@RequestParam int quantity)
     {
         return productService.updateQunatity(id,quantity);
     }
@@ -49,4 +49,10 @@ public class ProductController {
         return "Product Deleted";
 
     }
+    @GetMapping("/getByCategory")
+    public List<Products> getByCat(@RequestParam String category)
+    {
+        return productService.getProductsByCategory(category);
+    }
+
 }

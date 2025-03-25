@@ -19,22 +19,21 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Products getProduct(Long id) {
-        return productRepo.getReferenceById(id);
+        Products temp=productRepo.findById(id).get();
+        return temp;
     }
 
     @Override
     public Products updatePrice(Long id,double price) {
         Products prod=productRepo.findById(id).get();
         prod.setPrice(price);
-//        prod.setQuantity(products.getQuantity());
         return productRepo.save(prod);
     }
 
     @Override
     public Products updateQunatity(Long id,int quant) {
         Products prod=productRepo.findById(id).get();
-        prod.setPrice(quant);
-//        prod.setQuantity(products.getQuantity());
+        prod.setQuantity(quant);
         return productRepo.save(prod);
     }
 
@@ -42,6 +41,10 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void deleteProduct(Long id) {
         productRepo.delete(productRepo.getReferenceById(id));
+    }
+    @Override
+    public List<Products> getProductsByCategory(String category) {
+        return productRepo.findByCategory(category);
     }
 
     @Override
