@@ -33,15 +33,16 @@ public class ProductController {
     }
 
     @PutMapping("/updatePrice/{id}")
-    public Products updatePrice(@PathVariable Long id,@RequestParam double price)
+    public Products updatePrice(@PathVariable Long id,@RequestParam double price,@RequestParam int quantity)
     {
-        return productService.updatePrice(id,price);
+        return productService.updateProduct(id,price,quantity);
     }
-    @PutMapping("/updateQuantity/{id}")
-    public Products updateQuantity(@PathVariable Long id,@RequestParam int quantity)
-    {
-        return productService.updateQunatity(id,quantity);
-    }
+
+//    @PutMapping("/updateQuantity/{id}")
+//    public Products updateQuantity(@PathVariable Long id,@RequestParam int quantity)
+//    {
+//        return productService.updateQunatity(id,quantity);
+//    }
 
     @DeleteMapping("/deleteP/{id}")
     public String deleteProduct(@PathVariable Long id)

@@ -24,18 +24,18 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Products updatePrice(Long id,double price) {
+    public Products updateProduct(Long id,double price,int quant) {
         Products prod=productRepo.findById(id).get();
         prod.setPrice(price);
-        return productRepo.save(prod);
-    }
-
-    @Override
-    public Products updateQunatity(Long id,int quant) {
-        Products prod=productRepo.findById(id).get();
         prod.setQuantity(quant);
         return productRepo.save(prod);
     }
+//
+//    @Override
+//    public Products updateQunatity(Long id,int quant) {
+//        Products prod=productRepo.findById(id).get();
+//        return productRepo.save(prod);
+//    }
 
 
     @Override
