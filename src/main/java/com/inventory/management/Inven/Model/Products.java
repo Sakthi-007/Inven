@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Entity
 public class Products {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long prod_id;
 
     @Column(name="productname")
@@ -25,6 +24,8 @@ public class Products {
 
     @Column(name ="quantity")
     private int quantity;
+
+
 
 
     public Products(){
