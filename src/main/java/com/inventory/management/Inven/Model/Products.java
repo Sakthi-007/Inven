@@ -1,15 +1,14 @@
 package com.inventory.management.Inven.Model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
 public class Products {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long prod_id;
 
     @Column(name="productname")

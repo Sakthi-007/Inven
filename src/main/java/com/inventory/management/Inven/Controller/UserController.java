@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins="*")
 public class UserController {
 
     @Autowired
@@ -53,6 +54,17 @@ public class UserController {
         userService.deleteUser(id);
         return "User Deleted";
 
+    }
+
+    @PostMapping("/signup")
+    public User signup(@RequestBody User user, @RequestParam UserRole role) {
+
+        return userService.registerUser(user, role);
+    }
+
+    @PostMapping("/login")
+    public User login(@RequestParam String email, @RequestParam String password) {
+        return userService.authUser(email, password);
     }
 
 }
