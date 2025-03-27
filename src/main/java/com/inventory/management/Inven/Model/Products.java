@@ -1,15 +1,14 @@
 package com.inventory.management.Inven.Model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
 public class Products {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long prod_id;
 
     @Column(name="productname")
@@ -19,7 +18,7 @@ public class Products {
     private String description;
 
     @Column(name = "category")
-    private String Category;
+    private String category;
 
     @Column(name="price")
     private double price;
@@ -36,7 +35,7 @@ public class Products {
         this.prod_id = prod_id;
         this.productname = productname;
         this.description = description;
-        this.Category = Category;
+        this.category = Category;
         this.price = price;
         this.quantity = quantity;
     }
@@ -66,11 +65,11 @@ public class Products {
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(String category) {
-        Category = category;
+        this.category = category;
     }
 
     public double getPrice() {
