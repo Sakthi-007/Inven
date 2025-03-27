@@ -62,7 +62,7 @@ public class UserController {
         return userService.registerUser(user, role);
     }
 
-    @PostMapping("/login")
+    @PostMapping("/loginn")
     public User login(@RequestParam String email, @RequestParam String password) {
         return userService.authUser(email, password);
     }
